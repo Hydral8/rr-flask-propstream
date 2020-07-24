@@ -5,7 +5,6 @@ import json
 
 app = Flask(__name__)
 
-
 def add_errors(msg, errors):
     msg += ("\n" + "-" * 50)
     for error in errors:

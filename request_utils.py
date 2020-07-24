@@ -2,7 +2,10 @@ import ast
 import requests
 from airtable import Airtable
 import re
+import json
 
+with open("flask_app/config.json") as json_file:
+    cfg = json.load(json_file)
 
 # utility function to get the first valid record and return it as a dict
 def first_valid_record(records):
@@ -21,7 +24,7 @@ def first_valid_record(records):
 
 def get_records():
     airtable = Airtable('appP8OJaz4knlavqC', "api_headers",
-                        api_key='keyJEDY3Mkf5qjQAP')
+                        api_key=cfg['apiKEY'])
 
     try:
         # get all records
